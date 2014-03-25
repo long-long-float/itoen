@@ -1,5 +1,7 @@
 # Itoen
 
+[![Build Status](https://travis-ci.org/long-long-float/itoen.svg)](https://travis-ci.org/long-long-float/itoen)
+
 TODO: Write a gem description
 
 ## Installation
