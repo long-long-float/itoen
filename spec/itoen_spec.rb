@@ -26,5 +26,6 @@ describe ITOEN do
   it { 21.to_en.should eq 'twenty-one' }
   it { 99.to_en.should eq 'ninety-nine' }
   it { 100.to_en.should eq 'one hundred' }
+  it { 119.to_en.should eq 'one hundred nineteen' }
   it { 777.to_en.should eq 'seven hundred seventy-seven'}
 end
