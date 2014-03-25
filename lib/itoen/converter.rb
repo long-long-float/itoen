@@ -1,14 +1,18 @@
 module ITOEN
   module_function
   
-  TABLE = %w(zero one two three four five six seven eight nine ten
-    eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty)
-
-  20.step(90, 10).each_with_index do |num, i|
-    TABLE[num] = %w(twenty thirty forty fifty sixty seventy eighty ninety)[i]
-  end 
+  TABLE_0_9 = %w(zero one two three four five six seven eight nine)
+  TABLE_11_19 = %w(eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen)
+  TABLE_PER_10 = %w(_ ten twenty thirty forty fifty sixty seventy eighty ninety)
 
   def itoen(num)
-    TABLE[num]
+    case num
+    when 0..9
+      TABLE_0_9[num]
+    when 11..19
+      TABLE_11_19[num - 11]
+    else
+      TABLE_PER_10[num / 10] + (num % 10 != 0 ? ' ' + TABLE_0_9[num % 10] : '')
+    end
   end
 end

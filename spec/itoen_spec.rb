@@ -22,4 +22,8 @@ describe ITOEN do
       ITOEN.itoen(num)
     }.should eq %w(twenty thirty forty fifty sixty seventy eighty ninety)
   end
+
+  it { 21.to_en.should eq 'twenty one' }
+  it { 77.to_en.should eq 'seventy seven' }
+  it { 99.to_en.should eq 'ninety nine' }
 end
