@@ -23,7 +23,8 @@ describe ITOEN do
     }.should eq %w(twenty thirty forty fifty sixty seventy eighty ninety)
   end
 
-  it { 21.to_en.should eq 'twenty one' }
-  it { 77.to_en.should eq 'seventy seven' }
-  it { 99.to_en.should eq 'ninety nine' }
+  it { 21.to_en.should eq 'twenty-one' }
+  it { 99.to_en.should eq 'ninety-nine' }
+  it { 100.to_en.should eq 'one hundred' }
+  it { 777.to_en.should eq 'seven hundred seventy-seven'}
 end

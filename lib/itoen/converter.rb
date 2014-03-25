@@ -12,7 +12,19 @@ module ITOEN
     when 11..19
       TABLE_11_19[num - 11]
     else
-      TABLE_PER_10[num / 10] + (num % 10 != 0 ? ' ' + TABLE_0_9[num % 10] : '')
+      nums = num.to_s.each_char.map(&:to_i).reverse
+      [
+        (nums[2] && "#{TABLE_0_9[nums[2]]} hundred "),
+        (nums[1] != 0 ? TABLE_PER_10[nums[1]] : ''),
+        (nums[0] != 0 ? '-' : ''),
+        (nums[0] != 0 ? TABLE_0_9[nums[0]] : '')
+       ].join.strip
     end
+  end
+
+  private
+
+  def num_by_digit(num, digit)
+    num.to_s[digit]
   end
 end
