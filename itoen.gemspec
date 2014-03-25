@@ -5,7 +5,7 @@ require 'itoen/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "itoen"
-  spec.version       = Itoen::VERSION
+  spec.version       = ITOEN::VERSION
   spec.authors       = ["long-long-float"]
   spec.email         = ["niinikazuki@yahoo.co.jp"]
   spec.summary       = %q{TODO: Write a short summary. Required.}
