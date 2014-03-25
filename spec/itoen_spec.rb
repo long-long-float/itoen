@@ -16,4 +16,10 @@ describe ITOEN do
       ITOEN.itoen(num)
     }.should eq %w(eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty)
   end
+
+  it 'returns English numbers (20, 30, 40, 50, 60, 70, 80, 90)' do
+    20.step(90, 10).map{|num|
+      ITOEN.itoen(num)
+    }.should eq %w(twenty thirty forty fifty sixty seventy eighty ninety)
+  end
 end
