@@ -45,4 +45,6 @@ describe ITOEN do
   it 'returns negative number' do
     -7.to_en.should eq 'negative seven'
   end
+
+  it { 3.14.to_en.should eq 'three point one four' }
 end

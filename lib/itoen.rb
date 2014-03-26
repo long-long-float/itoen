@@ -1,4 +1,4 @@
 require "itoen/version"
 require "itoen/errors"
 require "itoen/converter"
-require "itoen/extension/integer"
+require "itoen/extension/numeric"
