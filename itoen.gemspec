@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = ITOEN::VERSION
   spec.authors       = ["long-long-float"]
   spec.email         = ["niinikazuki@yahoo.co.jp"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{convert numeric to English string}
+  spec.description   = %q{convert numeric to English string}
+  spec.homepage      = "https://github.com/long-long-float/itoen"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
