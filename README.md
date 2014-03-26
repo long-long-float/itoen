@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/long-long-float/itoen.svg)](https://travis-ci.org/long-long-float/itoen)
 
-TODO: Write a gem description
+convert numeric to English string
 
 ## Installation
 
@@ -20,7 +20,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'itoen'
+
+puts 1.to_en # one
+puts 777.to_en # seven hundred seventy-seven
+
+# Supports big number!
+puts (10**30).to_en #one nonillion
+
+# Too big number :(
+puts (10**350).to_en rescue ITOEN::TooBigError
+
+puts 3.14.to_en # three point one four
+
+puts -10.to_en # negative ten
+
+puts ITOEN.itoen(1) # one
+```
 
 ## Contributing
 
