@@ -37,4 +37,12 @@ describe ITOEN do
   it { (10**12).to_en.should eq 'one trillion' }
   it { (10**15).to_en.should eq 'one quadrillion' }
   it { 1284592671.to_en.should eq 'one billion two hundred eighty-four million five hundred ninety-two thousand six hundred seventy-one' }
+
+  it 'raises error' do
+    ->{ (10**306).to_en }.should raise_error ITOEN::TooBigError
+  end
+
+  it 'returns negative number' do
+    -7.to_en.should eq 'negative seven'
+  end
 end

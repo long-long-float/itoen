@@ -7,6 +7,10 @@ module ITOEN
   TABLE_POW_1000 = %w(_ thousand million billion trillion quadrillion quintillion sextillion septillion octillion nonillion decillion undecillion duodecillion tredecillion quattuordecillion quindecillion sexdecillion septendecillion octodecillion novemdecillion vigintillion unvigintillion duovigintillion trevigintillion quattuorvigintillion quinvigintillion sexvigintillion septenvigintillion octovigintillion novemvigintillion trigintillion untrigintillion duotrigintillion tretrigintillion quattuortrigintillion quintrigintillion sextrigintillion septentrigintillion octotrigintillion novemtrigintillion quadragintillion unquadragintillion duoquadragintillion trequadragintillion quattuorquadragintillion quinquadragintillion sexquadragintillion septenquadragintillion octoquadragintillion novemquadragintillion quinquagintillion unquinquagintillion duoquinquagintillion trequinquagintillion quattuorquinquagintillion quinquinquagintillion sexquinquagintillion septenquinquagintillion octoquinquagintillion novemquinquagintillion sexagintillion unsexagintillion duosexagintillion tresexagintillion quattuorsexagintillion quinsexagintillion sexsexagintillion septsexagintillion octosexagintillion novemsexagintillion septuagintillion unseptuagintillion duoseptuagintillion treseptuagintillion quattuorseptuagintillion quinseptuagintillion sexseptuagintillion septseptuagintillion octoseptuagintillion novemseptuagintillion octogintillion unoctogintillion duooctogintillion treoctogintillion quattuoroctogintillion quinoctogintillion sexoctogintillion septoctogintillion octooctogintillion novemoctogintillion nonagintillion unnonagintillion duononagintillion trenonagintillion quattuornonagintillion quinnonagintillion sexnonagintillion septnonagintillion octononagintillion novemnonagintillion centillion)
 
   def itoen(num)
+    if num < 0
+      return "negative #{itoen(-num)}"
+    end
+
     nums = num.to_s.each_char.map(&:to_i).reverse
     case num
     when 0..9
@@ -29,7 +33,11 @@ module ITOEN
       nums.each_slice(3).map.with_index do |nums, digit|
         num = nums.reverse.join.to_i
         next nil if num == 0
-        "#{itoen(num)} #{digit != 0 ? TABLE_POW_1000[digit] : ''}"
+        begin
+          "#{itoen(num)} #{digit != 0 ? TABLE_POW_1000.fetch(digit) : ''}"
+        rescue IndexError
+          raise TooBigError
+        end
       end.reverse.select{|n| n}.join(' ').strip
     end
   end
